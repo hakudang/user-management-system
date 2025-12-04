@@ -1,0 +1,22 @@
+# Sequence Diagram
+
+
+---
+
+# docs/uml/seq-member-register.mmd  
+```md
+```mermaid
+sequenceDiagram
+    actor Guest
+    participant UI
+    participant System
+    participant DB
+    participant EmailService
+
+    Guest ->> UI: 情報入力
+    UI ->> System: 入力送信
+    System ->> DB: 会員保存
+    DB -->> System: OK
+    System ->> EmailService: 確認メール送信
+    EmailService -->> System: OK
+    System ->> UI: 完了画面表示
