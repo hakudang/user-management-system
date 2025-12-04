@@ -1,22 +1,22 @@
-# 📘 Document Workflow Guide (BrSE Project Documentation)
+# 📘 ドキュメントワークフローガイド（BrSE プロジェクト標準）
 
-Hướng dẫn quy trình tạo – quản lý – review tài liệu của toàn dự án.  
-Tài liệu được viết bằng Markdown, quản lý bằng Git, lưu trữ trên GitHub.
-
----
-
-## 1. 🎯 Mục tiêu
-
-Giữ toàn bộ tài liệu dự án ở dạng **single source of truth**:
-
-- Không còn nhiều phiên bản → chỉ **1 bản chính thức** trên GitHub  
-- Lịch sử thay đổi rõ ràng (who/when/what)  
-- Review tài liệu minh bạch qua Pull Request  
-- Tài liệu dễ đọc, dễ bảo trì, dễ chia sẻ  
+プロジェクト全体の「作成 → 管理 → レビュー」フローを統一するためのガイドです。  
+ドキュメントは Markdown で作成し、Git で管理し、GitHub に保存します。
 
 ---
 
-## 2. 📁 Cấu trúc thư mục tài liệu
+## 1. 🎯 目的
+
+すべてのドキュメントを **Single Source of Truth（唯一の正本）** として管理する。
+
+- バージョン乱立を防ぎ、GitHub 上の **1 つの正式版** に統一  
+- 変更履歴を明確化（who / when / what）  
+- Pull Request による透明なレビュー  
+- 読みやすく、保守しやすく、共有しやすいドキュメントを実現  
+
+---
+
+## 2. 📁 ドキュメントフォルダ構成
 
 ```
 docs/
@@ -33,62 +33,62 @@ docs/
     mail-spec.md                  # メール仕様
     permission-spec.md            # 権限仕様
   uml/
-    erd.mmd                       # ERD (Mermaid)
-    seq-member-register.mmd       # Sequence Diagram
-    usecase-member.mmd            # Use Case Diagram
+    erd.mmd                       # ERD（Mermaid）
+    seq-member-register.mmd       # シーケンス図
+    usecase-member.mmd            # ユースケース図
   templates/
-    meeting-minutes-template.md   # 議事録テンプレ
-    brse-qa-template.md           # QAテンプレ
-    change-log-template.md        # 変更履歴テンプレ
+    meeting-minutes-template.md   # 議事録テンプレート
+    brse-qa-template.md           # QAテンプレート
+    change-log-template.md        # 変更履歴テンプレート
 ```
 
 ---
 
-## 3. 🛠 Công cụ cần có
+## 3. 🛠 必要なツール
 
-### VSCode extensions
+### VSCode 拡張機能
 
-- Markdown All in One – soạn thảo Markdown nhanh  
-- Mermaid Preview – xem UML trực tiếp  
-- Markdown PDF – xuất bản PDF  
-- GitLens – xem lịch sử commit  
-- Prettier – format tài liệu  
+- Markdown All in One（Markdown編集を高速化）
+- Mermaid Preview（UML を直接プレビュー）
+- Markdown PDF（PDF 出力）
+- GitLens（コミット履歴表示）
+- Prettier（Markdown 整形）
 
-### GitHub features
+### GitHub 機能
 
 - Pull Request  
-- Branch Protection (option)  
-- Issue Template + PR Template  
+- Branch Protection（任意）  
+- Issue / PR Template  
 
 ---
 
-## 4. 🌿 Workflow viết tài liệu chuẩn BrSE
+## 4. 🌿 BrSE 標準のドキュメント作成ワークフロー
 
-### 4.1. Tạo nhánh mới cho tài liệu  
-Không edit trực tiếp trên `main`.
+### 4.1. 新しいブランチを作成する  
+`main` を直接編集しないこと。
 
-Ví dụ tạo tài liệu DB Definition:
+例：DB定義書を作成する場合
 
-```
+```bash
 git checkout -b docs/db-definition
 ```
 
 ---
 
-### 4.2. Tạo hoặc cập nhật tài liệu Markdown
+### 4.2. Markdown ドキュメントを作成・更新する
 
-Quy tắc:
+ルール：
 
-- Mỗi file đại diện đúng 1 loại tài liệu  
-- Dùng heading cấp 2 trở lên (`##`, `###`)  
-- Dùng bảng để mô tả yêu cầu, tham số, rule  
-- UML (ERD, sequence...) dùng Mermaid hoặc Graphviz  
+- 1ファイル = 1種のドキュメント  
+- 見出しは `##` 以上を使用  
+- 要件・パラメータ・ルールは表形式で整理  
+- ERD / Sequence 図は Mermaid または Graphviz を使用  
 
 ---
 
-### 4.3. Commit với format thống nhất
+### 4.3. 統一フォーマットでコミットする
 
-```
+```bash
 feat(docs): add DB definition draft
 fix(docs): update validation rules
 docs: refine use case flow
@@ -96,137 +96,136 @@ docs: refine use case flow
 
 ---
 
-### 4.4. Push lên GitHub
+### 4.4. GitHub に Push
 
-```
+```bash
 git push origin docs/db-definition
 ```
 
 ---
 
-### 4.5. Tạo Pull Request
+### 4.5. Pull Request を作成する
 
-Nội dung cần ghi trong PR:
+PR に記載すべき内容：
 
-- Mục đích sửa đổi  
-- Phạm vi tài liệu ảnh hưởng  
-- Screenshot (nếu có UML)  
-- Checklist hoàn thành  
+- 変更目的  
+- 影響範囲  
+- UML のスクリーンショット（必要なら）  
+- チェックリスト  
 
-Ví dụ:
+例：
 
 ```md
 ### Purpose
-- Thêm DB定義書 bản đầu tiên.
+- DB定義書（初版）の追加。
 
 ### Changes
 - docs/design/db-definition.md
 
 ### Checklist
-- [x] Format chuẩn Markdown
-- [x] ERD preview OK
-- [x] Thuật ngữ thống nhất
+- [x] Markdown フォーマット済み
+- [x] ERD プレビュー確認
+- [x] 用語統一
 ```
 
 ---
 
-### 4.6. Review & Approve
+## 4.6. レビュー & 承認
 
-- Reviewer (PM/Dev/QA) comment vào từng dòng  
-- BrSE trả lời rõ ràng, sửa nếu cần  
-- Cố gắng giữ PR nhỏ để review dễ  
-- Khi được approve → merge vào main  
-
----
-
-## 5. 🔄 Quy tắc cập nhật tài liệu
-
-### 5.1. Mọi thay đổi phải đi qua Pull Request  
-Không được commit trực tiếp lên `main`.
+- Reviewer（PM / Dev / QA）が行単位でコメント  
+- BrSE が回答し、必要に応じて修正  
+- PR は小さく分割し、レビューしやすくする  
+- 承認後に main へマージ  
 
 ---
 
-### 5.2. Tài liệu quan trọng phải có CHANGELOG  
-Ví dụ:
+## 5. 🔄 ドキュメント更新ルール
 
-```
+### 5.1. すべての変更は Pull Request 経由  
+main への直接コミットは禁止。
+
+---
+
+### 5.2. 重要ドキュメントは CHANGELOG を持つ  
+
+例：
+
+```md
 ## Change History
-- 2025-12-04: Updated API spec (DANG)
+- 2025-12-04: API仕様更新（DANG）
 ```
 
 ---
 
-### 5.3. Tài liệu dạng “sống” (living documents)
+### 5.3. 「生きているドキュメント（Living Document）」
 
-- 要件定義  
+以下は要求変更とともに必ず更新：
+
+- 要件定義書  
 - 画面遷移図  
 - バリデーション仕様  
 
-→ Khi thay đổi requirement phải cập nhật ngay.
+---
+
+## 6. 🔍 ファイル命名ルール
+
+| 種類 | 命名規則 | 例 |
+|------|----------|------|
+| 要件 | kebab-case | system-requirements.md |
+| 設計 | kebab-case | screen-transition.md |
+| UML | camelCase / snake_case | erd.mmd / seq-member-register.mmd |
+| テンプレ | kebab-case | brse-qa-template.md |
 
 ---
 
-## 6. 🔍 Quy tắc đặt tên file
+## 7. 🧪 マージ前のチェック項目
 
-| Loại tài liệu | Quy tắc | Ví dụ |
-|---------------|---------|--------|
-| Requirements | kebab-case | system-requirements.md |
-| Design | kebab-case | screen-transition.md |
-| UML | camelCase hoặc snake_case | erd.mmd, seq-member-register.mmd |
-| Template | kebab-case | brse-qa-template.md |
+### 共通チェック
 
----
+- [ ] Markdown フォーマット  
+- [ ] 見出しレベル統一  
+- [ ] 長文なら TOC あり  
+- [ ] 図が正しく表示される  
+- [ ] 誤字脱字なし  
+- [ ] 日英越の用語統一  
+- [ ] コミットメッセージが明確  
 
-## 7. 🧪 Quy tắc kiểm tra tài liệu trước khi merge
+### BrSE 専用チェック
 
-### Checklist chung:
-
-- [ ] Format Markdown chuẩn  
-- [ ] Heading đồng nhất  
-- [ ] TOC tự động (nếu dài)  
-- [ ] Diagram hiển thị OK  
-- [ ] Không lỗi chính tả  
-- [ ] Dùng đúng thuật ngữ Nhật–Anh–Việt  
-- [ ] Commit rõ ràng  
-
-### Checklist riêng cho BrSE:
-
-- [ ] Requirement → không ambiguous  
-- [ ] Flow logic đúng và khớp UI  
-- [ ] DB định nghĩa đủ khóa, kiểu dữ liệu, rule  
-- [ ] Validation đầy đủ (必須 / 文字数 / 型 / 範囲 / フォーマット)  
-- [ ] Error Spec có mã error rõ ràng  
-- [ ] Permission Spec phân quyền đúng role  
+- [ ] 要件に曖昧さがない  
+- [ ] UI とフローが一致  
+- [ ] DB定義が完全（PK / FK / 型 / 制約）  
+- [ ] バリデーション（必須 / 桁数 / 型 / 範囲 / フォーマット）  
+- [ ] エラー仕様にコードが明確  
+- [ ] 権限仕様がロール別に整合  
 
 ---
 
-## 8. 🧭 Policy đồng bộ tài liệu với Dev
+## 8. 🧭 ドキュメントと開発の同期ポリシー
 
-Thay đổi logic → cập nhật 3 chỗ:
+ロジック変更 → 必ず更新するドキュメント：
 
-1. 要件定義書 (Requirement)  
-2. 設計書 (Design)  
-3. UML (Sequence / ERD)
+1. 要件定義書  
+2. 設計書  
+3. UML（Sequence / ERD）
 
-→ Dev luôn làm theo tài liệu mới nhất trên `main`.
-
----
-
-## 9. 📤 Xuất tài liệu cho khách Nhật
-
-Nếu cần gửi PDF:
-
-- Right-click file → “Markdown PDF: Export (pdf)”  
-- Upload file vào Google Drive hoặc gửi mail kèm link  
-- PR luôn là bản chính; PDF chỉ để tham khảo  
+開発者は常に `main` の最新ドキュメントに従う。
 
 ---
 
-## 10. 🧱 Tư duy quản lý tài liệu của BrSE
+## 9. 📤 クライアント（日本側）へ PDF を提出する場合
 
-- Tài liệu phải rõ ràng để Dev không hỏi lại  
-- Tài liệu phải thống nhất để QA test đúng  
-- Tài liệu phải có lịch sử để PM trace được  
-- Tài liệu phải cấu trúc chuẩn để onboarding nhanh  
-- Tài liệu phải mở rộng được khi dự án lớn lên  
+- VSCode などで “Markdown PDF: Export (pdf)” を使用  
+- PDF は参照用。正本は必ず PR（GitHub）の Markdown  
 
+---
+
+## 10. 🧱 BrSE のドキュメント管理思想
+
+- ドキュメントは Dev が質問せず理解できるレベルに  
+- ドキュメントは QA が正確にテストできるレベルに  
+- ドキュメントは PM が履歴を追跡できるように  
+- ドキュメントは新メンバーが簡単にキャッチアップできるように  
+- ドキュメントはプロジェクト拡大に耐えられる構造に  
+
+---
