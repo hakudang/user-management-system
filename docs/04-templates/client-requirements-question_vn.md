@@ -1,10 +1,12 @@
-# 1. Làm hệ thống này để làm gì?
+# Mẫu Thu Thập Yêu Cầu Khách Hàng
+
+## 1. Làm hệ thống này để làm gì?
 
 - Quản lý tài khoản cho nội bộ? cho khách hàng? cho nhiều hệ thống khác?
 
 - Ví dụ: “Quản lý user dùng chung cho các web/app của công ty, có phân quyền.”
 
-# Ai sẽ dùng hệ thống? (Role)
+##  Ai sẽ dùng hệ thống? (Role)
 
 - Admin hệ thống
 
@@ -13,7 +15,7 @@
 - Người dùng cuối (user thường)
 Mỗi loại được phép / không được phép làm gì?
 
-# Cần những màn hình / chức năng gì?
+##  Cần những màn hình / chức năng gì?
 Ví dụ:
 
 - Đăng nhập / đăng xuất / quên mật khẩu
@@ -27,13 +29,13 @@ Ví dụ:
 
 - Nhật ký thao tác (log)
 
-# Cần quản lý những thông tin nào của user?
+##  Cần quản lý những thông tin nào của user?
 
 - Email, password, họ tên, số điện thoại, vai trò, trạng thái (active/inactive), ngày tạo, ngày cập nhật…
 
 - Trường nào bắt buộc? Trường nào optional?
 
-# Quy tắc & ràng buộc quan trọng?
+##  Quy tắc & ràng buộc quan trọng?
 
 - Password dài bao nhiêu ký tự, bắt buộc chữ hoa/thường/số/ký tự đặc biệt?
 
@@ -43,13 +45,13 @@ Ví dụ:
 
 - Có cần xác thực email (verification) không?
 
-# Tích hợp với hệ thống khác không?
+##  Tích hợp với hệ thống khác không?
 
 - Ví dụ: sau này dùng chung account với website khác, dùng SSO, hay dùng Google Login…
 
 - Nếu chưa rõ, cứ ghi “để open, tương lai có thể mở rộng”.
 
-# Các yêu cầu phi chức năng (NFR)
+##  Các yêu cầu phi chức năng (NFR)
 
 - Bảo mật: SSL/HTTPS, mã hóa password (BCrypt…), giới hạn login sai, log lại thao tác…
 

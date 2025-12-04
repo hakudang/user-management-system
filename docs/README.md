@@ -21,6 +21,7 @@
 ```
 docs/
   requirements/
+    client-requirements.md        # 顧客要求書
     system-requirements.md        # 要件定義書
     usecase-member-register.md
   design/

@@ -1,4 +1,4 @@
-# Yêu Cầu Dự Án - User Management System
+# Yêu Cầu Dự Án
 
 ## 1) Bạn muốn xây dựng hệ thống này để làm gì? (Mục tiêu sử dụng)
 Dự án nhằm xây dựng một hệ thống **User Management System** để quản lý tập trung toàn bộ tài khoản người dùng, bao gồm Admin, Staff và End User.  
