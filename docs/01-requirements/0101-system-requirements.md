@@ -281,7 +281,7 @@ End User:
 ### 8.2 Mermaid Flowchart
 
 ```mermaid
-flowchart TD
+flowchart LR
 
     L[Login] --> D[Dashboard（Role Routing）]
 
@@ -309,7 +309,7 @@ flowchart TD
 ### 8.3 Mermaid（画面ID付き）
 
 ```mermaid
-flowchart TD
+flowchart LR
 
     L[EU-01：Login] --> D[Dashboard（Role Routing）]
 
