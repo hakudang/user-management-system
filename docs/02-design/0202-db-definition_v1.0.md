@@ -118,6 +118,18 @@
 ---
 
 # 3. リレーション図（ERD）
+
+## Logical ERD
+```mermaid
+erDiagram
+    users ||--o{ user_roles : has
+    roles ||--o{ user_roles : assigned_to
+    roles ||--o{ role_permissions : has
+    permissions ||--o{ role_permissions : includes
+    users ||--o{ audit_logs : logs
+    users ||..o{ password_resets : "via email (論理的関係)"
+```
+## Physical ERD
 ```mermaid
 erDiagram
     users {
@@ -180,17 +192,6 @@ erDiagram
     %% password_resets is standalone (no FK)
     users ||..o{ password_resets : "via email (論理的関係)"
 ```
-
-```mermaid
-erDiagram
-    users ||--o{ user_roles : has
-    roles ||--o{ user_roles : assigned_to
-    roles ||--o{ role_permissions : has
-    permissions ||--o{ role_permissions : includes
-    users ||--o{ audit_logs : logs
-    users ||..o{ password_resets : "via email (論理的関係)"
-```
-
 ---
 
 # 4. 命名規則（Naming Rules）
