@@ -23,7 +23,7 @@ docs/
   requirements/
     client-requirements.md        # 顧客要求書
     system-requirements.md        # 要件定義書
-    usecase-member-register.md
+    usecase-member-register.md    # ユースケース定義書
   design/
     screen-transition.md          # 画面遷移図
     db-definition.md              # DB定義書
@@ -43,8 +43,20 @@ docs/
     change-log-template.md        # 変更履歴テンプレート
 ```
 
----
+**必要ドキュメント作成順序**
+- 顧客要求書（Customer Requirements）
+- 要件定義書（System Requirements）
+- ユースケース定義書（Use Case Definition）
+- 画面遷移図（Screen Flow）
+- DB定義書 ＋ ERD
+- 権限仕様（Permission Matrix）
+- バリデーション仕様（Field Validation Spec）
+- 業務ルール（Business Rules）
+- API仕様書（API Spec）
+- エラー仕様（Error Code Spec）
+- メール仕様（Mail Templates）
 
+---
 ## 3. 🛠 必要なツール
 
 ### VSCode 拡張機能
