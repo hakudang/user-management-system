@@ -83,16 +83,16 @@ Admin ロールに限定した画面遷移。
 ```mermaid
 flowchart TD
 
-    EU01[EU-01：Login] --> AD01[AD-01：Admin Dashboard]
+    EU01[EU-01<br>Login] --> AD01[AD-01<br>Admin Dashboard]
 
-    AD01 --> AD02[AD-02：User List]
-    AD01 --> AD05[AD-05：User Create]
-    AD01 --> AD06[AD-06：Role & Permission Setting]
-    AD01 --> AD07[AD-07：Audit Log]
+    AD01 --> AD02[AD-02<br>User List]
+    AD01 --> AD05[AD-05<br>User Create]
+    AD01 --> AD06[AD-06<br>Role & Permission Setting]
+    AD01 --> AD07[AD-07<br>Audit Log]
 
     %% User List → Detail → Edit %%%
-    AD02 --> AD03[AD-03：User Detail]
-    AD03 --> AD04[AD-04：User Edit]
+    AD02 --> AD03[AD-03<br>User Detail]
+    AD03 --> AD04[AD-04<br>User Edit]
 
     %% Return Paths %%%
     AD04 --> AD03
@@ -113,13 +113,13 @@ Staff は担当範囲内のみ閲覧・編集可能な前提。
 ```mermaid
 flowchart TD
 
-    EU01[EU-01：Login] --> ST01[ST-01：Staff Dashboard]
+    EU01[EU-01<br>Login] --> ST01[ST-01<br>Staff Dashboard]
 
-    ST01 --> ST02[ST-02：User List（権限制限）]
-    ST02 --> ST03[ST-03：User Detail（制限付き）]
+    ST01 --> ST02[ST-02<br>User List（権限制限）]
+    ST02 --> ST03[ST-03<br>User Detail（制限付き）]
 
     %% 編集（制限付き） %%%
-    ST03 --> ST03E[ST-03：User Edit（制限付き）]
+    ST03 --> ST03E[ST-03<br>User Edit（制限付き）]
 
     %% 戻り遷移 %%%
     ST03E --> ST03
@@ -136,11 +136,11 @@ End User 用マイページ周りの遷移。
 ```mermaid
 flowchart TD
 
-    EU01[EU-01：Login] --> EU02[EU-02：My Profile]
+    EU01[EU-01<br>Login] --> EU02[EU-02<br>My Profile]
 
-    EU02 --> EU03[EU-03：My Profile Edit]
-    EU02 --> EU04[EU-04：Change Password]
-    EU02 --> EU05[EU-05：Login History]
+    EU02 --> EU03[EU-03<br>My Profile Edit]
+    EU02 --> EU04[EU-04<br>Change Password]
+    EU02 --> EU05[EU-05<br>Login History]
 
     %% 戻り遷移 %%%
     EU03 --> EU02
