@@ -23,7 +23,7 @@ docs/
   requirements/
     client-requirements.md        # 顧客要求書
     system-requirements.md        # 要件定義書
-    usecase-member-register.md    # ユースケース定義書
+    usecase-specification.md      # ユースケース定義書
   design/
     screen-transition.md          # 画面遷移図
     db-definition.md              # DB定義書
